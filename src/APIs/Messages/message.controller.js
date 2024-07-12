@@ -14,9 +14,6 @@ const addMessage = async (req, res, next) => {
       content: message,
       chatRoom: chatRoom._id,
     });
-
-    console.log(newMessage);
-
     chatRoom.messages.push(newMessage._id);
     await chatRoom.save();
     return res.status(201).json({ message: "Message sent successfully" });
